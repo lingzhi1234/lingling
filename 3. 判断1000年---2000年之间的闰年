@@ -1,0 +1,33 @@
+# define _CRT_SECURE_NO_WARNINGS 1
+# include<stdio.h>
+int main()
+{
+	int a=0,year;
+	printf("闰年需满足如下任一条件：1.能被4整除，但不能被100整除。2.能被400整除\n");
+	printf("请输入一个在1000-2000之间的年份:");
+	scanf("%d",&year);
+	if(year<1000||year>2000)
+	{
+		printf("请重新输入");
+	}
+	if ((year % 4) == 0)
+	{
+		if ((year % 100) != 0)
+		{
+			a = 1;
+		}
+	}
+	if ((year % 400) == 0)
+	{
+		a = 1;
+	}
+	if (a == 1)
+	{
+		printf("%d是闰年\n", year);
+	}
+	if (a == 0)
+	{
+		printf("%d不是闰年\n", year);
+	}
+	return 0;
+}
