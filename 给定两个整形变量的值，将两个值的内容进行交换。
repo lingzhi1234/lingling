@@ -1,0 +1,12 @@
+# define _CRT_SECURE_NO_WARNINGS 1
+# include <stdio.h>
+int main()
+{
+	printf("给定两个整形变量的值，将两个值的内容进行交换。\n");
+	int a=10, b=20;
+	printf("交换前a=%d,b=%d\n", a, b);
+	a = a ^ b;
+	b = a ^ b;
+	a = a ^ b;
+	printf("交换后a=%d,b=%d\n", a, b);
+}
