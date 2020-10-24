@@ -1,0 +1,14 @@
+# define _CRT_SECURE_NO_WARNINGS 1
+# include<stdio.h>
+int main()
+{
+	int a, b;
+	printf("请输入一个数\n");
+	scanf("%d", &a);
+	b = a % 2;
+	if (b)
+	{
+		printf("%d是奇数\n", a);
+	}
+	return 0;
+}
