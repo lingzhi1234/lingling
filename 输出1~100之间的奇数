@@ -1,0 +1,16 @@
+# define _CRT_SECURE_NO_WARNINGS 1
+# include<stdio.h>
+int main()
+{
+	int a, b;
+	printf("1~100以内的奇数有：");
+	for (a = 1; a <= 100; a++)
+	{
+		b = a % 2;
+		if (b)
+		{
+			printf("%d、 ", a);
+		}
+	}
+	return 0;
+}
