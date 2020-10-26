@@ -1,0 +1,15 @@
+# define _CRT_SECURE_NO_WARNINGS 1
+# include<stdio.h>
+int main()
+{
+	int i,n,a=1,b=0;
+	printf("请输入一个正整数");
+	scanf("%d", &n);
+	for (i = 1; i <=n; i++)
+	{
+		a= a*i ;
+		b = b + a;
+	}
+	printf("则%d的阶层和为%d", n, b);
+	return 0;
+}
