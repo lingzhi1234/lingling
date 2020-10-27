@@ -1,0 +1,25 @@
+# define _CRT_SECURE_NO_WARNINGS 1
+# include<stdio.h>
+# include<string.h>   //引用strlen函数
+# include<windows.h>   //引用Sleep函数
+# include<stdlib.h>
+int main()
+{
+	int right, left;
+	char a[] = "welcome to bite!!!!!!";
+	char b[] = "#####################";
+	left = 0;
+	right = strlen(a)-1;
+	for (;left<=right;)
+	{
+		b[left] = a[left];
+		b[right] = a[right];
+		left++;
+		right--;
+		printf("%s\n", b);
+		Sleep(1000);
+		system("cls");
+	}
+	printf("%s", b);
+	return 0;
+}
