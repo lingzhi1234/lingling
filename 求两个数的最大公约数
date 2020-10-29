@@ -1,0 +1,21 @@
+# define _CRT_SECURE_NO_WARNINGS 1
+# include<stdio.h>
+# include<string.h>   
+# include<windows.h>
+# include<stdlib.h>
+int main()
+{
+	int a, b,i,k;
+	printf("请输入两个正整数\n");
+	scanf("%d%d", &a, &b);
+	k = a<b ? a:b;
+	for (i=k;i>=1;k--)
+	{
+		if (((a % k) == 0) && ((b % k) == 0))
+		{
+			printf("%d和%d的最大公约数为：%d\n", a, b, k);
+			break;
+		}
+	}
+	return 0;
+}
