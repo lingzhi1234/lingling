@@ -1,0 +1,20 @@
+# define _CRT_SECURE_NO_WARNINGS 1
+# include<stdio.h>
+# include<string.h>   
+# include<windows.h>
+# include<stdlib.h>
+# include<math.h>
+int main()
+{
+	printf("计算1/1-1/2+1/3-1/4+1/5 …… + 1/99 - 1/100 的值\n");
+	double a = 1.0;  //分子 永远是1
+	double b;     // 分母 每次加1
+	double  k = -1.0;
+	double sum=0.0,num;
+	for (b = 1; b <= 100; b++)
+	{
+		num=a/(pow(k, b + 1)*b);
+		sum = sum + num;
+	}
+	printf("值为：%lf", sum);
+}
