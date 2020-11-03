@@ -1,0 +1,28 @@
+# define _CRT_SECURE_NO_WARNINGS 1
+# include<stdio.h>
+void shuchu(int i)
+{
+	int j;
+	for (j = 1; j <= (7 - i); j++)
+	{
+		printf(" ");
+	}
+	for (j = 1; j <= (2 * i - 1); j++)
+	{
+		printf("*");
+	}
+	printf("\n");
+}
+int main()
+{
+	int i;
+	for (i = 1; i <=7; i++)
+	{
+		shuchu(i);
+	}
+	for (i = 6; i > 0; i--)
+	{
+		shuchu(i);
+	}
+	return 0;
+}
