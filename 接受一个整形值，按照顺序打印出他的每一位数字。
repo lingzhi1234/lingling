@@ -1,0 +1,8 @@
+void shuchu(int a)
+{
+	if (a > 9)
+	{
+		shuchu(a/10);
+	}
+	printf("%d   ",(a%10));
+}
