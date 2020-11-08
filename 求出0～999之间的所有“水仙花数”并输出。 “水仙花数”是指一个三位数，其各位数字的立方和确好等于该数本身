@@ -1,0 +1,33 @@
+# define _CRT_SECURE_NO_WARNINGS 1
+# include<stdio.h>
+int lifang(int k)
+{
+	return (k * k * k);
+}
+int shuixian(int i)
+{
+	int a, b, c;
+	a = i / 100;
+	b = (i - 100 * a) / 10;
+	c = i %10;
+	if (i ==( lifang(a) + lifang(b) + lifang(c)))
+	{
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
+}
+int main()
+{
+	int i;
+	for (i =100; i <= 999; i++)
+	{
+		if (shuixian(i) == 1)
+		{
+			printf("%d是水仙数\n", i);
+		}
+	}
+	return 0;
+}
