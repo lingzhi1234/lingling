@@ -1,136 +1,41 @@
 # define _CRT_SECURE_NO_WARNINGS 1
 # include "game.h"
-void initboard(char board[ROW][COL], int row, int col)
+void game()
 {
-	int i, j;
-	for (i = 0; i < row; i++)
-	{
-		for (j = 0; j < col; j++)
-		{
-			board[i][j] = ' ';
-		}
-	}
+	char showboard[ROW][COL], realboard[ROW][COL];   // showboard[ROW][COL]是展示的棋盘，realboard是实际的棋盘
+	initializeboard(showboard,ROW,COL,'*');     //初始化棋盘即把棋盘上全部放上同一个字符,*代表格子
+	initializeboard(realboard, ROW, COL, '0');  //初始化棋盘即把棋盘上全部放上同一个字符
+	putboard(realboard, ROWS, COLS);       //    布雷
+	improveboard(realboard,ROWS,COLS);    //  把真实棋盘完善即把数字加上
+	sweepmines(showboard,realboard,ROWS,COLS); //扫雷
 }
-void displayboard(char board[ROW][COL], int row, int col)
+int main()
 {
-	int i,j;
-	for (i = 0; i < row; i++)
+	srand((unsigned)time(NULL));
+	int input;
+	do
 	{
-		for (j=0;j<col;j++)
+	printf("******************************************\n");
+	printf("*********1.开始游戏        0.退出*********\n");
+	printf("******************************************\n");
+		scanf("%d", &input);
+		switch (input)
 		{
-			printf(" %c ",board[i][j]);
-			if (j < col - 1)
-			{
-				printf("|");
-			}
-		}
-		printf("\n");
-		if (i < row - 1)
+		case 1:
 		{
-			for (j = 0; j < col; j++)
-			{
-				printf("---");
-				if (j < col - 1)
-				{
-					printf("|");
-				}
-			}
-			printf("\n");
-		}
-	}
-}
-void playermove(char board[ROW][COL], int row, int col)
-{
-	int x, y;
-	while (1)
-	{
-		printf("请您输入坐标：");
-		scanf("%d%d", &x,&y);
-		if (x > 0 && x <=row && y>0 && y <=col)
-		{
-			if (board[x - 1][y - 1] == ' ')
-			{
-				board[x - 1][y - 1] = '*';
-				break;
-			}
-			else
-			{
-				printf("输入错误!\n");
-			}
-		}
-		else
-		{
-			printf("输入错误!\n");
-		}
-	}
-}
-void computermove(char board[ROW][COL], int row, int col)
-{
-	int x, y;
-	printf("电脑下棋!\n");
-	while (1)
-	{
-		x = rand() % row;
-		y = rand() % col;
-		if (board[x][y] == ' ')
-		{
-			board[x][y] = '#';
+			game();
 			break;
 		}
-	}
-}
-char iswin(char board[ROW][COL], int row, int col)
-{
-	int i,j;
-	for (i = 0; i < row; i++)   //判断行是否胜
-	{
-		for (j = 0; j < (col - 2); j++)
+		case 0:
 		{
-			if (board[i][j] == board[i][j + 1] && board[i][j + 1] == board[i][j + 2] && board[i][j] != ' ')
-			{
-				return board[i][j];
-			}
+			printf("再见！\n");
+			break;
 		}
-	}
-	for (j = 0; j < col; j++)    //判断列是否胜
-	{
-		for (i = 0; i < (row - 2); i++)
+		default:
 		{
-			if (board[i][j]==board[i+1][j]&&board[i+1][j]==board[i+2][j]&&board[i][j]!=' ')
-			{
-				return board[i][j];
-			}
+			printf("请重新选择！\n");
 		}
-	}
-	for (i = 0; i < row-2; i++)       //正序对角线
-	{
-		for (j = 0; j < col - 2; j++)
-		{
-			if (board[i][j] == board[i + 1][j + 1] && board[i + 1][j + 1] == board[i + 2][j + 2] && board[i][j] != ' ')
-			{
-				return board[i][j];
-			}
 		}
-	}
-	for (i = 2; i < row; i++)       //倒序斜对角线
-	{
-		for (j = 0; j < col - 2; j++)
-		{
-			if (board[i][j] == board[i - 1][j + 1] && board[i - 1][j + 1] == board[i - 2][j + 2] && board[i][j] != ' ')
-			{
-				return board[i][j];
-			}
-		}
-	}
-	for (i = 0; i < row; i++)   //判断平局 还是继续
-	{
-		for (j = 0; j < col; j++)
-		{
-			if (board[i][j] == ' ')
-			{
-				return 'c';
-			}
-		}
-	}
-	return 'Q';
+	} while (input);
+	return 0;
 }
