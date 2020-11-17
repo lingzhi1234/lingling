@@ -1,0 +1,34 @@
+# define _CRT_SECURE_NO_WARNINGS 1
+# include<stdio.h>
+//冒泡排序（Bubble Sort），是一种计算机科学领域的较简单基础的排序算法。
+//其基本思路是，对于一组要排序的元素列，依次比较相邻的两个数，将比较小的数放在前面，
+//比较大的数放在后面，如此继续，直到比较到最后的两个数，将小数放在前面，
+//大数放在后面，重复步骤，直至全部排序完成。
+int main()
+{
+    int size, i, j, k;
+    int a[10] = { 10,9,8,7,6,5,4,3,2,1 };
+    size = (sizeof(a) / sizeof(a[0]));
+    printf("变换前a[]=");
+    for (i = 0; i < 10; i++)
+    {
+        printf(" %d ", a[i]);
+    }
+    printf("\n");
+    for (i = 0; i <size-1; i++)
+    {
+        for (j = i + 1; j <size; j++)
+            if (a[i] > a[j])
+        {
+            k = a[i];
+            a[i] = a[j];
+            a[j] = k;
+        }
+    }
+    printf("变换后a[]=");
+    for (i = 0; i < size; i++)
+    {
+        printf(" %d ", a[i]);
+    }
+    return 0;
+}
