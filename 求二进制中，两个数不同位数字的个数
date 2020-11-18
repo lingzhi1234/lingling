@@ -1,0 +1,22 @@
+# define _CRT_SECURE_NO_WARNINGS 1
+# include<stdio.h>
+int num(int a, int b)
+{
+	int c,count=0;
+	c = a ^ b;
+	while (c)
+	{
+		c = (c & (c - 1));
+		count++;
+	}
+	return count;
+}
+int main()
+{
+	int a,b,count;
+	printf("请输入两个整数！");
+	scanf("%d%d", &a,&b);
+	count = num(a, b);
+	printf("%d和%d的二进制不同位的数量是%d", a, b, count);
+	return 0;
+}
