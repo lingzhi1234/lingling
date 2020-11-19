@@ -1,0 +1,23 @@
+# define _CRT_SECURE_NO_WARNINGS 1
+# include<stdio.h>
+# include<string.h>
+void change(char a[])
+{
+	int k,tep;
+	k = strlen(a)-1;
+	tep = *a;
+	*a = *(a + k);
+	*(a + k) = '\0';
+	if (strlen(a)>=2)
+	{
+		change(a + 1);
+	}
+	*(a + k) = tep;
+}
+int main()
+{
+	char a[] = "abcdefg";
+	change(a);
+	printf("%s", a);
+	return 0;
+}
