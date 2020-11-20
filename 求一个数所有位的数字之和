@@ -1,0 +1,23 @@
+# define _CRT_SECURE_NO_WARNINGS 1
+# include<stdio.h>
+int num(int a)
+{
+	int b=a;
+	if (a > 9)
+	{
+		b = num(a/ 10) + a % 10;
+		return b;
+	}
+	else
+	{
+		return b;
+	}
+}
+int main()
+{
+	int a;
+	printf("请输入一个数！\n");
+	scanf("%d", &a);
+	printf("%d的所有数字之和为%d", a, num(a));
+	return 0;
+}
