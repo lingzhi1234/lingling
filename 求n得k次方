@@ -1,0 +1,26 @@
+# define _CRT_SECURE_NO_WARNINGS 1
+# include<stdio.h>
+double power(double n, int k)
+{
+	if (k < 0)
+	{
+		return(1 /power(n,-k));
+	}
+	else if (k == 0)
+	{
+		return 1;
+	}
+	else
+	{
+		return(n * power(n, (k-1)));
+	}
+}
+int main()      //求n得k次方
+{
+	int k;
+	double n;
+	printf("请输入n和k的值\n");
+	scanf("%lf%d", &n, &k);
+	printf("%f的%d次方=%f", n, k, power(n, k));
+	return 0;
+}
