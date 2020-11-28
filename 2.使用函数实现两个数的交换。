@@ -1,0 +1,19 @@
+# define _CRT_SECURE_NO_WARNINGS 1
+# include<stdio.h>     
+void change(double *p1,double *p2)
+{
+	double k;
+	k = *p1;
+	*p1 = *p2;
+	*p2 = k;
+}
+int main()     
+{
+	double a, b;
+	printf("请输入两个数！\n");
+	scanf("%lf%lf", &a, &b);
+	printf("交换前a=%lf,b=%lf\n", a, b);
+	change(&a, &b);
+	printf("交换后a=%lf,b=%lf\n", a, b);
+	return 0;
+}
