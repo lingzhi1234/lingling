@@ -1,0 +1,55 @@
+# define _CRT_SECURE_NO_WARNINGS 1
+# include<stdio.h>     //创建一个数组，
+                      //实现函数init（）初始化数组、
+                      //实现empty（）清空数组、
+                     //实现reverse（）函数完成数组元素的逆置。
+                     //要求：自己设计函数的参数，返回值。
+void shuchu(int* a)
+{
+    int i;
+    for (i = 0; i < 10; i++)
+    {
+        printf(" %d ", *(a + i));
+    }
+    printf("\n");
+}
+void init(int *a)
+{
+    int i;
+    printf("请输入10个整数！\n");
+    for (i = 0; i < 10; i++)
+    {
+        scanf("%d", a+i);
+    }
+}
+void empty(int* a)
+{
+    int i;
+    for (i = 0; i < 10; i++)
+    {
+        *(a + i) = 0;
+    }
+}
+void reverse(int* a,int k)
+{
+    int i,j;
+    for (i = 0; i < (k / 2); i++)
+    {
+        j = *(a + i);
+        *(a + i) = *(a +( k - 1-i));
+        *(a + (k - 1-i)) = j;
+    }
+}
+int main()     
+{
+    int k;
+    int a[10] ;
+    k = (sizeof(a)/sizeof(a[1]));
+    init(a);
+    shuchu(a);
+    empty(a);
+    shuchu(a);
+    reverse(a,k);
+    shuchu(a);
+	return 0;
+}
