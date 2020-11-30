@@ -1,0 +1,16 @@
+# define _CRT_SECURE_NO_WARNINGS 1
+# include<stdio.h>    //编写一个程序，判断当前电脑的存储方式是小端存储还是大端存储
+int main()
+{
+	int a = 1;
+	char* p = (char *)&a;
+	if (*p ==1)
+	{
+		printf("该系统是小端存储！");
+	}
+	else
+	{
+		printf("该系统是大端存储！");
+	}
+	return 0;
+}
