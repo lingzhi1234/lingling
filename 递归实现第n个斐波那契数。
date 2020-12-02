@@ -1,0 +1,20 @@
+# define _CRT_SECURE_NO_WARNINGS 1
+# include<stdio.h>    //递归实现第n个斐波那契数。
+int fei(int n)
+{
+	if (n <= 2)
+	{
+		return 1;
+	}
+	else
+	{
+		return(fei(n - 1)+fei(n-2));
+	}
+}
+int main()
+{
+	int n;
+	printf("请输入一个正整数！\n");
+	scanf("%d", &n);
+	printf("第%d个斐波那契数为%d",n,fei(n));
+}
