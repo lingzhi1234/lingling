@@ -1,0 +1,19 @@
+# define _CRT_SECURE_NO_WARNINGS 1
+# include<stdio.h>    //用递归求字符串长度函数
+int stlrn(char *a)
+{
+	if ((*a) != '\0')
+	{
+		return (stlrn(a + 1)+1);
+	}
+	else
+	{
+		return 0;
+	}
+}
+int main()
+{
+	char a[] = "i am a student";
+	printf("%d",stlrn(a));
+	return 0;
+}
