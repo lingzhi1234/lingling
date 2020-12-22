@@ -1,0 +1,29 @@
+# define _CRT_SECURE_NO_WARNINGS 1
+# include<stdio.h>    //写一个函数返回参数二进制中 1 的个数
+                      //比如： 15       0000 1111       4 个 1
+                     //程序原型：
+                    //  int  count_one_bits(unsigned int value)
+                    //{
+	               // 返回 1的位数
+                   //}
+int count_one_bits(unsigned int value)
+{
+    int num=0;
+    while (value != 0)
+    {
+        if ((value & 1) == 1)
+        {
+            num++;     
+        }
+        value=(value >> 1);
+    }
+    return num;
+}
+int main()
+{
+    printf("请输入一个数：");
+    unsigned int value;
+    scanf("%u", &value);
+    printf("\n%d",count_one_bits(value));
+	return 0;
+}
