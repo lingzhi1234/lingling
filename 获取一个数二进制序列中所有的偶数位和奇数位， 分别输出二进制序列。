@@ -1,0 +1,38 @@
+# define _CRT_SECURE_NO_WARNINGS 1
+# include<stdio.h>   //获取一个数二进制序列中所有的偶数位和奇数位，
+                    //分别输出二进制序列。
+void shuchu1(unsigned int a)
+{
+    int num = 1;
+    printf("%d的二进制序列中奇数位为： ",a);
+    while (num <= 32)
+    {
+        printf("%d ", (a & 1));
+        a=(a >> 2);
+        num = num + 2;
+    }
+}
+void shuchu2(unsigned int a)
+{
+    int num;
+    num = 2;
+    printf("%d的二进制序列中偶数位为： ", a);
+    a = (a >> 1);
+    while (num <= 32)
+    {
+        printf("%d ", (a & 1));
+        a = (a >> 2);
+        num = num + 2;
+    }
+}
+
+int main()
+{
+    unsigned int a;
+    printf("请输入一个数！");
+    scanf("%u", &a);
+    shuchu1(a);
+    printf("\n");
+    shuchu2(a);
+	return 0;
+}
