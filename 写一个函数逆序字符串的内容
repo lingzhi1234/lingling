@@ -1,0 +1,26 @@
+# define _CRT_SECURE_NO_WARNINGS 1
+# include<stdio.h>  //写一个函数逆序字符串的内容
+# include <string.h>
+void back(char *a)
+{
+	int len = strlen(a);
+	int left = 0,right=len-1;
+	while (left <= right)
+	{
+		int b;
+		b =*(a+left);
+		*(a + left) = *(a + right);
+		*(a + right) = b;
+		left++, right--;
+	}
+}
+int main()
+{
+	printf("请输入一个字符串！");
+	char a[256] = { '0' };
+	gets(a);
+	printf("交换前的字符串为%s\n", a);
+	back(a);
+	printf("交换后的字符串为%s\n", a);
+	return 0;
+}
