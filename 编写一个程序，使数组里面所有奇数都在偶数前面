@@ -1,0 +1,42 @@
+# define _CRT_SECURE_NO_WARNINGS 1
+# include<stdio.h>  //编写一个程序，使数组里面所有奇数都在偶数前面
+void P(int a[],int size)
+{
+	int i;
+	for (i = 0; i < size; i++)
+	{
+		printf(" %d ", a[i]);
+	}
+}
+void change(int a[], int size)
+{
+	int left=0,right=size-1;
+	while (left < right)
+	{
+		int t;
+		while ((left < right) && (a[left] % 2 != 0))
+		{
+			left++;
+		}
+		while ((left < right) && (a[right] % 2 == 0))
+		{
+			right--;
+		}
+		t = a[left];
+		a[left] = a[right];
+		a[right] = t;
+	}
+}
+int main()
+{
+	int a[] = { 1,2,3,4,5,6,7,8,9,10 };
+	int size;
+	size = sizeof(a) / sizeof(a[0]);
+	printf("变换前的数组为：");
+	P(a, size);
+	change(a,size);
+	printf("\n");
+	printf("变换后的数组为：");
+	P(a, size);
+	return 0;
+}
