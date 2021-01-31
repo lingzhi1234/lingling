@@ -1,0 +1,19 @@
+# define _CRT_SECURE_NO_WARNINGS 1
+# include<stdio.h>  //喝汽水，1瓶汽水1元，2个空瓶可以换一瓶汽水，给20元，可以喝多少瓶汽水
+# define unitprice 1
+int main()
+{
+	int money, num, bottle,unitbottle;
+	printf("请输入钱数！\n");
+	scanf("%d", &money);
+	num = (money / unitprice);//用钱买的汽水
+	unitbottle = num ;
+	do
+	{
+		bottle = (unitbottle / 2);//用瓶子换的汽水
+		unitbottle = bottle + (unitbottle % 2);//还没换汽水的瓶子个数
+		num = bottle + num;//喝的汽水总数
+	} while (unitbottle >= 2);
+	printf("一共可以喝%d瓶汽水",num);
+	return 0;
+}
