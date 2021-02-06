@@ -1,0 +1,29 @@
+# define _CRT_SECURE_NO_WARNINGS 1
+# include<stdio.h> 
+# include<string.h>//左旋转函数
+//ABCD左旋两个字符得到CDAB
+void levorotation(char* left, char* right)
+{
+	int m;
+	while (left<right)
+	{
+		m = *left;
+		*(left) = *(right);
+		*(right) = m;
+		left++;
+		right--;
+	}
+}
+int main()
+{
+	char a[] = "abcdefg";
+	int k = strlen(a);
+	int b;
+	printf("请输入一个数，该数的值小于%d\n", k);
+	scanf("%d", &b);
+	levorotation(a, (a + b - 1));
+	levorotation((a + b),(a+k-1));
+	levorotation(a, (a+k-1));
+	printf("%s", a);
+	return 0;
+}
