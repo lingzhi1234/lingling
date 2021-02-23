@@ -1,0 +1,38 @@
+# define _CRT_SECURE_NO_WARNINGS 1
+# include<stdio.h> 
+# include<string.h>//判断b数组是不是a数组的左旋转数组
+int leftrevolve(char* a, char* b)
+{
+	if (strlen(a) != strlen(b))
+	{
+		return 0;
+	}
+	else
+	{
+		strncat(a, a, strlen(a));
+		if (strstr(a, b) == NULL)
+		{
+			return 0;
+		}
+		else
+		{
+			return 1;
+		}
+	}
+}
+int main()
+{
+	int ret;
+	char a[20] = "abcde";
+	char b[6] = "cdaab";
+	ret = leftrevolve(a,b);
+	if (ret == 0)
+	{
+		printf("不是");
+	}
+	else
+	{
+		printf("是");
+	}
+	return 0;
+}
